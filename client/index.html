@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dragão Lanches — O sabor mais tradicional de São Carlos</title>
-<meta name="description" content="Dragão Lanches, na Rua Iwagiro Toyama, 626, Jardim Paulistano, São Carlos. Lanches, hambúrgueres e cachorro-quente feitos na hora. Retirada no balcão ou consumo no local. Aberto de segunda a sábado, das 17h às 23h40.">
+<meta name="description" content="Dragão Lanches, na Rua Iwagiro Toyama, 626, Jardim Paulistano, São Carlos. Lanches, hambúrgueres e cachorro-quente feitos na hora. Retirada no balcão ou consumo no local. Aberto de segunda a sábado, das 16h às 23h40.">
 <meta name="theme-color" content="#2E6B3E">
 <link rel="canonical" href="https://dragaolanches.com.br/">
 
@@ -39,7 +39,7 @@
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "17:00",
+      "opens": "16:00",
       "closes": "23:40"
     }
   ],
@@ -257,11 +257,13 @@
     display:grid;grid-template-columns:1fr 1fr;gap:0 40px;
   }
   .menu-item{
-    display:flex;align-items:baseline;gap:8px;
+    display:grid;grid-template-columns:minmax(0,auto) minmax(18px,1fr) auto;align-items:start;gap:8px;
     padding:11px 0;border-bottom:1px dashed var(--line);
   }
-  .menu-item .name{font-weight:600;font-size:.97rem;}
-  .menu-item .dots{flex:1;border-bottom:1px dotted var(--ink-soft);opacity:.5;transform:translateY(-4px);}
+  .menu-copy{min-width:0;}
+  .menu-item .name{display:block;font-weight:600;font-size:.97rem;}
+  .menu-item .ingredients{display:block;color:var(--ink-soft);font-size:.78rem;line-height:1.35;margin-top:3px;}
+  .menu-item .dots{border-bottom:1px dotted var(--ink-soft);opacity:.5;transform:translateY(12px);}
   .menu-item .price{font-weight:700;color:var(--red-dark);font-size:.95rem;white-space:nowrap;}
   .menu-subhead{
     grid-column:1 / -1;
@@ -478,7 +480,7 @@
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
           <input id="menuSearch" type="search" placeholder="Ex.: bacon, frango ou cheddar" autocomplete="off" aria-describedby="menuSearchHelp">
         </div>
-        <p class="menu-search-help" id="menuSearchHelp">Digite um ingrediente ou nome para filtrar a categoria escolhida.</p>
+        <p class="menu-search-help" id="menuSearchHelp">Digite um ingrediente, nome ou complemento para filtrar a categoria escolhida.</p>
       </div>
       <p class="menu-count" id="menuCount" role="status" aria-live="polite">3 opções nesta categoria</p>
     </div>
@@ -496,128 +498,126 @@
 
     <div class="menu-panel active" data-panel="semcarne">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">Misto-quente</span><span class="dots"></span><span class="price">R$ 26,00</span></div>
-        <div class="menu-item"><span class="name">Queijo-quente</span><span class="dots"></span><span class="price">R$ 27,00</span></div>
-        <div class="menu-item"><span class="name">X-Natural</span><span class="dots"></span><span class="price">R$ 32,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Misto-quente</span><span class="ingredients">maionese, tomate, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 26,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Queijo-quente</span><span class="ingredients">maionese, tomate e queijo.</span></div><span class="dots"></span><span class="price">R$ 27,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Natural</span><span class="ingredients">maionese, tomate, azeitona, alface e queijo.</span></div><span class="dots"></span><span class="price">R$ 32,00</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="hamburguer">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">X-Burguer</span><span class="dots"></span><span class="price">R$ 26,00</span></div>
-        <div class="menu-item"><span class="name">X-Salada</span><span class="dots"></span><span class="price">R$ 28,50</span></div>
-        <div class="menu-item"><span class="name">X-Acebolado</span><span class="dots"></span><span class="price">R$ 29,00</span></div>
-        <div class="menu-item"><span class="name">X-Egg</span><span class="dots"></span><span class="price">R$ 28,50</span></div>
-        <div class="menu-item"><span class="name">X-Milho</span><span class="dots"></span><span class="price">R$ 30,50</span></div>
-        <div class="menu-item"><span class="name">X-Azeitona</span><span class="dots"></span><span class="price">R$ 31,50</span></div>
-        <div class="menu-item"><span class="name">X-Americano</span><span class="dots"></span><span class="price">R$ 31,50</span></div>
-        <div class="menu-item"><span class="name">X-Calabresa</span><span class="dots"></span><span class="price">R$ 31,50</span></div>
-        <div class="menu-item"><span class="name">X-Bacon</span><span class="dots"></span><span class="price">R$ 34,00</span></div>
-        <div class="menu-item"><span class="name">X-Catupiry</span><span class="dots"></span><span class="price">R$ 34,00</span></div>
-        <div class="menu-item"><span class="name">X-Cheddar</span><span class="dots"></span><span class="price">R$ 35,00</span></div>
-        <div class="menu-item"><span class="name">X-Bacon com Catupiry</span><span class="dots"></span><span class="price">R$ 44,00</span></div>
-        <div class="menu-item"><span class="name">X-Bacon com Cheddar</span><span class="dots"></span><span class="price">R$ 45,00</span></div>
-        <div class="menu-item"><span class="name">X-Tudo</span><span class="dots"></span><span class="price">R$ 38,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Burguer</span><span class="ingredients">maionese, tomate, carne, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 26,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Salada</span><span class="ingredients">maionese, tomate, carne, alface, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 28,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Acebolado</span><span class="ingredients">maionese, tomate, carne, cebola, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 29,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Egg</span><span class="ingredients">maionese, tomate, carne, ovo, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 28,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Milho</span><span class="ingredients">maionese, tomate, carne, milho, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 30,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Azeitona</span><span class="ingredients">maionese, tomate, carne, azeitona, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 31,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Americano</span><span class="ingredients">maionese, tomate, carne, ovo, milho, alface, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 31,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Calabresa</span><span class="ingredients">maionese, tomate, carne, calabresa, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 31,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Bacon</span><span class="ingredients">maionese, tomate, carne, bacon, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 34,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Catupiry</span><span class="ingredients">maionese, tomate, carne, catupiry, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 34,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Cheddar</span><span class="ingredients">maionese, tomate, carne, cheddar, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 35,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Bacon com Catupiry</span><span class="ingredients">maionese, tomate, carne, bacon, catupiry, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 44,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Bacon com Cheddar</span><span class="ingredients">maionese, tomate, carne, bacon, cheddar, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 45,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Tudo</span><span class="ingredients">maionese, tomate, carne, milho, azeitona, alface, ovo, bacon, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 38,00</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="frango">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">X-Frango</span><span class="dots"></span><span class="price">R$ 30,50</span></div>
-        <div class="menu-item"><span class="name">X-Frango Acebolado</span><span class="dots"></span><span class="price">R$ 33,50</span></div>
-        <div class="menu-item"><span class="name">X-Americano de Frango</span><span class="dots"></span><span class="price">R$ 37,00</span></div>
-        <div class="menu-item"><span class="name">X-Frango Bacon</span><span class="dots"></span><span class="price">R$ 38,00</span></div>
-        <div class="menu-item"><span class="name">X-Frango Catupiry</span><span class="dots"></span><span class="price">R$ 38,00</span></div>
-        <div class="menu-item"><span class="name">X-Frango Cheddar</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
-        <div class="menu-item"><span class="name">X-Frango Tudo</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Frango</span><span class="ingredients">maionese, tomate, frango, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 30,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Frango Acebolado</span><span class="ingredients">maionese, tomate, frango, cebola, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 33,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Frango Catupiry</span><span class="ingredients">maionese, tomate, frango, catupiry, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 38,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Frango Cheddar</span><span class="ingredients">maionese, tomate, frango, cheddar, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 41,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Frango Bacon</span><span class="ingredients">maionese, tomate, frango, bacon, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 38,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Frango Tudo</span><span class="ingredients">maionese, tomate, frango, milho, azeitona, alface, ovo, bacon, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 41,00</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="contrafile">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">X-Contrafilé</span><span class="dots"></span><span class="price">R$ 38,00</span></div>
-        <div class="menu-item"><span class="name">X-Contrafilé Acebolado</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
-        <div class="menu-item"><span class="name">X-Americano de Contrafilé</span><span class="dots"></span><span class="price">R$ 44,00</span></div>
-        <div class="menu-item"><span class="name">X-Contrafilé Catupiry</span><span class="dots"></span><span class="price">R$ 48,50</span></div>
-        <div class="menu-item"><span class="name">X-Contrafilé Cheddar</span><span class="dots"></span><span class="price">R$ 49,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Contrafilé</span><span class="ingredients">maionese, tomate, contrafilé, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 38,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Contrafilé Acebolado</span><span class="ingredients">maionese, tomate, contrafilé, queijo, presunto e cebola.</span></div><span class="dots"></span><span class="price">R$ 41,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Contrafilé Catupiry</span><span class="ingredients">maionese, tomate, contrafilé, queijo, presunto e catupiry.</span></div><span class="dots"></span><span class="price">R$ 48,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Contrafilé Cheddar</span><span class="ingredients">maionese, tomate, contrafilé, queijo, presunto e cheddar.</span></div><span class="dots"></span><span class="price">R$ 49,50</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="lombo">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">X-Lombo</span><span class="dots"></span><span class="price">R$ 32,50</span></div>
-        <div class="menu-item"><span class="name">X-Lombo Acebolado</span><span class="dots"></span><span class="price">R$ 35,50</span></div>
-        <div class="menu-item"><span class="name">X-Lombo Bacon</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
-        <div class="menu-item"><span class="name">X-Lombo Catupiry</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
-        <div class="menu-item"><span class="name">X-Americano de Lombo</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
-        <div class="menu-item"><span class="name">X-Lombo Cheddar</span><span class="dots"></span><span class="price">R$ 42,00</span></div>
-        <div class="menu-item"><span class="name">X-Lombo Tudo</span><span class="dots"></span><span class="price">R$ 42,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Lombo</span><span class="ingredients">maionese, tomate, lombo, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 32,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Lombo Acebolado</span><span class="ingredients">maionese, tomate, lombo, cebola, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 35,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Lombo Catupiry</span><span class="ingredients">maionese, tomate, lombo, catupiry, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 41,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Lombo Cheddar</span><span class="ingredients">maionese, tomate, lombo, cheddar, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 42,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Lombo Bacon</span><span class="ingredients">maionese, tomate, lombo, bacon, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 41,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">X-Lombo Tudo</span><span class="ingredients">maionese, tomate, lombo, milho, azeitona, alface, ovo, bacon, queijo e presunto.</span></div><span class="dots"></span><span class="price">R$ 42,00</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="bauru">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">Bauru de Frango</span><span class="dots"></span><span class="price">R$ 33,50</span></div>
-        <div class="menu-item"><span class="name">Bauru de Lombo</span><span class="dots"></span><span class="price">R$ 35,50</span></div>
-        <div class="menu-item"><span class="name">Bauru de Contrafilé</span><span class="dots"></span><span class="price">R$ 41,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Bauru de Frango</span><span class="ingredients">maionese, tomate, frango, cebola e queijo.</span></div><span class="dots"></span><span class="price">R$ 33,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Bauru de Lombo</span><span class="ingredients">maionese, tomate, lombo, cebola e queijo.</span></div><span class="dots"></span><span class="price">R$ 35,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Bauru de Contrafilé</span><span class="ingredients">maionese, tomate, contrafilé, cebola e queijo.</span></div><span class="dots"></span><span class="price">R$ 41,00</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="cachorro">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">Simples</span><span class="dots"></span><span class="price">R$ 15,00</span></div>
-        <div class="menu-item"><span class="name">Duplo</span><span class="dots"></span><span class="price">R$ 16,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Alface</span><span class="dots"></span><span class="price">R$ 19,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Ovo</span><span class="dots"></span><span class="price">R$ 19,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Milho</span><span class="dots"></span><span class="price">R$ 23,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Azeitona</span><span class="dots"></span><span class="price">R$ 23,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Calabresa</span><span class="dots"></span><span class="price">R$ 23,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Bacon</span><span class="dots"></span><span class="price">R$ 24,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Frango</span><span class="dots"></span><span class="price">R$ 24,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Catupiry</span><span class="dots"></span><span class="price">R$ 24,50</span></div>
-        <div class="menu-item"><span class="name">Duplo com Cheddar</span><span class="dots"></span><span class="price">R$ 24,50</span></div>
-        <div class="menu-item"><span class="name">Duplo Frango-Catupiry</span><span class="dots"></span><span class="price">R$ 30,50</span></div>
-        <div class="menu-item"><span class="name">Duplo Frango-Cheddar</span><span class="dots"></span><span class="price">R$ 30,50</span></div>
-        <div class="menu-item"><span class="name">Duplo Bacon-Catupiry</span><span class="dots"></span><span class="price">R$ 30,50</span></div>
-        <div class="menu-item"><span class="name">Duplo Bacon-Cheddar</span><span class="dots"></span><span class="price">R$ 30,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Simples</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda e 01 salsicha.</span></div><span class="dots"></span><span class="price">R$ 15,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda e 02 salsichas.</span></div><span class="dots"></span><span class="price">R$ 16,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Alface</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e alface.</span></div><span class="dots"></span><span class="price">R$ 19,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Ovo</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e ovo.</span></div><span class="dots"></span><span class="price">R$ 19,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Milho</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e milho.</span></div><span class="dots"></span><span class="price">R$ 23,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Azeitona</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e azeitona.</span></div><span class="dots"></span><span class="price">R$ 23,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Calabresa</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e calabresa.</span></div><span class="dots"></span><span class="price">R$ 23,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Bacon</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e bacon.</span></div><span class="dots"></span><span class="price">R$ 24,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Frango</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e frango.</span></div><span class="dots"></span><span class="price">R$ 24,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Catupiry</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e catupiry.</span></div><span class="dots"></span><span class="price">R$ 24,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo com Cheddar</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas e cheddar.</span></div><span class="dots"></span><span class="price">R$ 24,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo Frango-Catupiry</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas, frango e catupiry.</span></div><span class="dots"></span><span class="price">R$ 30,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo Frango-Cheddar</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas, frango e cheddar.</span></div><span class="dots"></span><span class="price">R$ 30,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo Bacon-Catupiry</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas, bacon e catupiry.</span></div><span class="dots"></span><span class="price">R$ 30,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cachorro-quente Duplo Bacon-Cheddar</span><span class="ingredients">maionese, tomate, batata palha, ketchup, mostarda, 02 salsichas, bacon e cheddar.</span></div><span class="dots"></span><span class="price">R$ 30,50</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="guarnicoes">
       <div class="menu-list">
-        <div class="menu-item"><span class="name">Ovo</span><span class="dots"></span><span class="price">R$ 3,00</span></div>
-        <div class="menu-item"><span class="name">Alface</span><span class="dots"></span><span class="price">R$ 3,00</span></div>
-        <div class="menu-item"><span class="name">Cebola</span><span class="dots"></span><span class="price">R$ 3,50</span></div>
-        <div class="menu-item"><span class="name">Milho</span><span class="dots"></span><span class="price">R$ 7,00</span></div>
-        <div class="menu-item"><span class="name">Azeitona</span><span class="dots"></span><span class="price">R$ 8,00</span></div>
-        <div class="menu-item"><span class="name">Calabresa</span><span class="dots"></span><span class="price">R$ 8,00</span></div>
-        <div class="menu-item"><span class="name">Bacon</span><span class="dots"></span><span class="price">R$ 10,00</span></div>
-        <div class="menu-item"><span class="name">Catupiry</span><span class="dots"></span><span class="price">R$ 10,00</span></div>
-        <div class="menu-item"><span class="name">Cheddar</span><span class="dots"></span><span class="price">R$ 11,00</span></div>
-        <div class="menu-item"><span class="name">Maionese, sachê avulso</span><span class="dots"></span><span class="price">R$ 0,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Ovo</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 3,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Alface</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 3,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cebola</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 3,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Milho</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 7,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Azeitona</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 8,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Calabresa</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 8,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Bacon</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 10,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Catupiry</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 10,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Cheddar</span><span class="ingredients">guarnição para acrescentar.</span></div><span class="dots"></span><span class="price">R$ 11,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Maionese — sachê avulso</span><span class="ingredients">avulso.</span></div><span class="dots"></span><span class="price">R$ 0,50</span></div>
       </div>
     </div>
 
     <div class="menu-panel" data-panel="bebidas">
       <div class="menu-list">
         <div class="menu-subhead">Cerveja</div>
-        <div class="menu-item"><span class="name">Brahma / Skol — 600ml</span><span class="dots"></span><span class="price">R$ 14,00</span></div>
-        <div class="menu-item"><span class="name">Brahma / Skol — lata</span><span class="dots"></span><span class="price">R$ 7,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Brahma / Skol — 600ml</span><span class="ingredients">bebida gelada.</span></div><span class="dots"></span><span class="price">R$ 14,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Brahma / Skol — lata</span><span class="ingredients">bebida gelada.</span></div><span class="dots"></span><span class="price">R$ 7,50</span></div>
         <div class="menu-subhead">Refrigerante 2 litros</div>
-        <div class="menu-item"><span class="name">Coca-Cola</span><span class="dots"></span><span class="price">R$ 16,00</span></div>
-        <div class="menu-item"><span class="name">Fanta</span><span class="dots"></span><span class="price">R$ 16,00</span></div>
-        <div class="menu-item"><span class="name">Guaraná Antártica</span><span class="dots"></span><span class="price">R$ 16,00</span></div>
-        <div class="menu-item"><span class="name">Guaraná São Carlos</span><span class="dots"></span><span class="price">R$ 11,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Coca-Cola</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 16,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Fanta</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 16,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Guaraná Antarctica</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 16,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Guaraná São Carlos</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 11,00</span></div>
         <div class="menu-subhead">Refrigerante 600ml</div>
-        <div class="menu-item"><span class="name">Coca-Cola</span><span class="dots"></span><span class="price">R$ 11,00</span></div>
-        <div class="menu-item"><span class="name">Fanta</span><span class="dots"></span><span class="price">R$ 11,00</span></div>
-        <div class="menu-item"><span class="name">Guaraná</span><span class="dots"></span><span class="price">R$ 11,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Coca-Cola</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 11,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Fanta</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 11,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Guaraná</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 11,00</span></div>
         <div class="menu-subhead">Refrigerante lata</div>
-        <div class="menu-item"><span class="name">Coca-Cola / Fanta</span><span class="dots"></span><span class="price">R$ 7,50</span></div>
-        <div class="menu-item"><span class="name">Guaraná</span><span class="dots"></span><span class="price">R$ 7,50</span></div>
-        <div class="menu-item"><span class="name">Sprite</span><span class="dots"></span><span class="price">R$ 7,50</span></div>
-        <div class="menu-subhead">Suco</div>
-        <div class="menu-item"><span class="name">Suco Tampico — 450ml</span><span class="dots"></span><span class="price">R$ 8,00</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Coca-Cola</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 7,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Fanta</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 7,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Guaraná</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 7,50</span></div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">Sprite</span><span class="ingredients">refrigerante.</span></div><span class="dots"></span><span class="price">R$ 7,50</span></div>
+        <div class="menu-subhead">Suco Tampico</div>
+        <div class="menu-item"><div class="menu-copy"><span class="name">450ml</span><span class="ingredients">suco.</span></div><span class="dots"></span><span class="price">R$ 8,00</span></div>
       </div>
     </div>
 
@@ -661,7 +661,7 @@
           <div>
             <h4>Horário de funcionamento</h4>
             <table class="hours-table">
-              <tr><td>Segunda a sábado</td><td>17h – 23h40</td></tr>
+              <tr><td>Segunda a sábado</td><td>16h – 23h40</td></tr>
               <tr><td>Domingo</td><td>Fechado</td></tr>
             </table>
           </div>
@@ -817,7 +817,8 @@
     const items = [...activePanel.querySelectorAll('.menu-item')];
     let visible = 0;
     items.forEach(item => {
-      const matches = !query || normalize(item.querySelector('.name').textContent).includes(query);
+      const searchable = item.querySelector('.name').textContent + ' ' + (item.querySelector('.ingredients')?.textContent || '');
+      const matches = !query || normalize(searchable).includes(query);
       item.hidden = !matches;
       if (matches) visible += 1;
     });
@@ -894,7 +895,7 @@
     const now = new Date();
     const day = now.getDay();
     const minutes = now.getHours() * 60 + now.getMinutes();
-    const isOpen = day >= 1 && day <= 6 && minutes >= 17 * 60 && minutes <= 23 * 60 + 40;
+    const isOpen = day >= 1 && day <= 6 && minutes >= 16 * 60 && minutes <= 23 * 60 + 40;
     const title = status.querySelector('strong');
     const detail = status.querySelector('small');
     status.classList.toggle('open', isOpen);
@@ -905,7 +906,7 @@
       return;
     }
     title.textContent = day === 0 ? 'Fechado hoje' : 'Fechado no momento';
-    detail.textContent = day === 0 || (day === 6 && minutes > 23 * 60 + 40) ? 'Abrimos segunda-feira às 17h.' : minutes < 17 * 60 ? 'Abrimos hoje às 17h.' : 'Abrimos amanhã às 17h.';
+    detail.textContent = day === 0 || (day === 6 && minutes > 23 * 60 + 40) ? 'Abrimos segunda-feira às 16h.' : minutes < 16 * 60 ? 'Abrimos hoje às 16h.' : 'Abrimos amanhã às 16h.';
   }
   updateOpenStatus();
   setInterval(updateOpenStatus, 60000);
